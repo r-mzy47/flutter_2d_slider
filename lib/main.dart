@@ -39,12 +39,13 @@ class Slider2D extends StatelessWidget {
                 top: posy - thumbSize / 2,
                 width: thumbSize,
                 height: thumbSize,
-                child: thumbWidget?? Container(
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      border: Border.all(width: 3, color: Colors.black),
-                      shape: BoxShape.circle),
-                ),
+                child: thumbWidget ??
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          border: Border.all(width: 3, color: Colors.black),
+                          shape: BoxShape.circle),
+                    ),
               ),
             ],
           ),
