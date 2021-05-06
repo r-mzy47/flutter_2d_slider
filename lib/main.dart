@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-typedef OnPositionChange(double x, double y);
+typedef OnPositionChange(Offset offset);
 
 class Slider2D extends StatelessWidget {
-  final double posx;
-  final double posy;
+  final Offset offset;
   final OnPositionChange onChange;
   final Widget? thumbWidget;
   final double thumbSize;
   const Slider2D({
     Key? key,
-    required this.posx,
-    required this.posy,
+    required this.offset,
     required this.onChange,
     this.thumbWidget,
     required this.thumbSize,
@@ -28,15 +26,16 @@ class Slider2D extends StatelessWidget {
           if (y < 0) y = 0;
           if (x > constraints.maxWidth) x = constraints.maxWidth;
           if (y > constraints.maxHeight) y = constraints.maxHeight;
-          if (posx != x || posy != y) onChange(x, y);
+          if (offset.dx != x || offset.dy != y) onChange(new Offset(x, y));
         },
         child: Container(
           child: Stack(
             children: [
+              Container(),
               AnimatedPositioned(
                 duration: Duration(milliseconds: 5),
-                left: posx - thumbSize / 2,
-                top: posy - thumbSize / 2,
+                left: offset.dx - thumbSize / 2,
+                top: offset.dy - thumbSize / 2,
                 width: thumbSize,
                 height: thumbSize,
                 child: thumbWidget ??
