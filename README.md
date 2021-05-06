@@ -2,13 +2,15 @@
 
 A Flutter 2D Slider package. Used to select from a range of 2-dimensional values with boundary.
 
+![Gif](https://github.com/r-mzy47/flutter_2d_slider/blob/master/example.gif "flutter 2d slider")
+
 ## Installation
 
 Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_2d_slider: ^0.0.1
+  flutter_2d_slider: ^0.1.0
 ```
 
 ## Usage
@@ -30,22 +32,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double posx = 0;
-  double posy = 0;
+  Offset offset;
+
+  @override
+  void initState() {
+    offset = new Offset(50, 50);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("'flutter 2D Slider Demo'"),
+        title: Text("flutter 2D Slider Demo"),
       ),
       body: Slider2D(
-        posx: posx,
-        posy: posy,
-        onChange: (x, y) {
+        offset: offset,
+        onChange: (newOffset) {
           setState(() {
-            posx = x;
-            posy = y;
+            offset = newOffset;
           });
         },
         thumbSize: 20,

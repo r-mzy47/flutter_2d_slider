@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'flutter 2D Slider Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -30,10 +29,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Offset offset;
 
   @override
-    void initState() {
-      offset = new Offset(50, 50);
-      super.initState();
-    }
+  void initState() {
+    offset = new Offset(50, 50);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
